@@ -69,13 +69,44 @@ public class Bicicletas{
     }
   }
 
-  public void ocuparVaga(String valorProcurado, int tamanho) {
+  public void alugarBicicleta(String valorProcurado) {
+    No anterior = null;
     No atual = this.primeiro;
-    for (int i = 0; i < tamanho; i++){//percorrendo o vetor
-      if(atual.getValor().equalsIgnoreCase(valorProcurado) || atual.getProximo() != null){
-          atual = atual.getProximo();  
-             atual.setValor("ocupado");
-      }  
+    for(int i=0; i < this.getTamanho(); i++){            
+      if (atual.getValor().equalsIgnoreCase(valorProcurado)){
+          if (this.tamanho == 1){
+              this.primeiro = null;
+              this.ultimo = null;
+          } else if (atual == primeiro){
+              this.primeiro = atual.getProximo();
+              atual.setProximo(null);
+          } else if (atual == ultimo){
+              this.ultimo = anterior;
+              anterior.setProximo(null);
+          } else {
+              anterior.setProximo(atual.getProximo());
+              atual = null;
+          }
+          this.tamanho--;
+          break;
+      }
+      anterior = atual;
+      atual = atual.getProximo();
     }
+  }
+
+  public void devolverBicicleta(String novoValor) {
+      No valor = new No(novoValor);
+    //adiiconei um último parâmetro
+    if(this.primeiro == null && this.ultimo == null){//então ele é o primeiro e o último
+        this.primeiro = valor;//o valor é preenchido no main
+        this.ultimo = valor;
+    }else{
+        this.ultimo.setProximo(valor);//setproximo tá na class No
+        this.ultimo = valor;
+    }
+    this.tamanho++;//criado novo índice
+    
+    this.ultimo.setValor(novoValor);
   }
 }

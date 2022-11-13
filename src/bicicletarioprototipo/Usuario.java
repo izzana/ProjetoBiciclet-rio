@@ -63,7 +63,7 @@ public class Usuario {
               break;
           }
         }
-    } else {
+    } else { 
       for(int i = 0; i < 10; i++){
         String bicicleta =  String.valueOf(i);
         bicicletas.adicionarVaga(bicicleta);
@@ -73,7 +73,6 @@ public class Usuario {
       while(aux != 4){
           System.out.println("----------MENU---------");
           System.out.println("Escolha uma opção:\n");
-          
           System.out.println("1. Ocupar bicicleta");
           System.out.println("2. Devolver bicicleta");
           System.out.println("3. Listar bicicletas");
@@ -82,28 +81,27 @@ public class Usuario {
           opt = options.nextInt();
           aux = opt;
           switch(opt){
-            case 1:
+            case 1: //ocupar bicicleta
               String bicicleta = "";
-              System.out.println("Quantas bicicletas você deseja remover?");
+              System.out.println("Quantas bicicletas você deseja alugar?");
               aux = 0;
               opt = options.nextInt();
               aux = opt;
 
               for(int i = 1; i <= aux; i++){
-                System.out.println("Qual o número da " + i + "ª bicicleta que você deseja remover:");
+                System.out.println("Qual o número da " + i + "ª bicicleta que você deseja alugar:");
                 opt = options.nextInt();
                 int escolha = opt;
                 bicicleta =  String.valueOf(escolha);
-                bicicletas.removerVaga(bicicleta);
+                bicicletas.alugarBicicleta(bicicleta);
                 System.out.println("bicicleta: " + escolha + " removida");
               }
-            
               break;
-            case 2:
+            case 2: //devolver bicicleta
               System.out.println("Quantas bicicletas você deseja remover?");
               opt = options.nextInt();
               for(int i = 0; i < opt; i++){
-                String bicicleta =  String.valueOf(i);
+                bicicleta =  String.valueOf(i);
                 bicicletas.removerVaga(bicicleta);
                 System.out.println(i);
               }
