@@ -8,7 +8,7 @@ public class BicicletarioPrototipo{
        //FilaDinamica fila = new FilaDinamica();
         Scanner ler = new Scanner(System.in);
         int tamanho;
-        Usuario fernando = new Usuario("fernando", 123);
+        Usuario fernando = new Usuario("fernanda", 123);
         //fernando.login();
         
         //Bicicletas bicicletas = new Bicicletas();

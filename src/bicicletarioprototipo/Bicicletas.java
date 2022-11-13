@@ -8,12 +8,15 @@ public class Bicicletas{
   public int getNumero(){
     return numero;
   }
+
   public void setNumero(int numero){
     this.numero = numero;
   }
+
   public int getTamanho(){
     return tamanho;
   }
+
   public void setTamanho(int tamanho){
     this.tamanho = tamanho;
   }
@@ -25,6 +28,7 @@ public class Bicicletas{
           atual = atual.getProximo();       
       }  
     }
+    
     //System.out.println("Atual: " + atual.getValor());
     return atual;
   }
