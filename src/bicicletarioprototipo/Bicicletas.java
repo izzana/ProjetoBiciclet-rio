@@ -25,23 +25,21 @@ public class Bicicletas{
     No atual = this.primeiro;
     for (int i = 0; i < tamanho; i++){//percorrendo o vetor
       if(atual.getProximo() != null){
-          atual = atual.getProximo();       
+         atual = atual.getProximo();       
       }  
     }
-    
-    //System.out.println("Atual: " + atual.getValor());
     return atual;
   }
 
   public void adicionarVaga(String novoValor){
     No valor = new No(novoValor);
-    //adiiconei um último parâmetro
+    //adiconei um último parâmetro
     if(this.primeiro == null && this.ultimo == null){//então ele é o primeiro e o último
-        this.primeiro = valor;//o valor é preenchido no main
-        this.ultimo = valor;
+       this.primeiro = valor;//o valor é preenchido no main
+       this.ultimo = valor;
     }else{
-        this.ultimo.setProximo(valor);//setproximo tá na class No
-        this.ultimo = valor;
+      this.ultimo.setProximo(valor);//setproximo tá na class No
+      this.ultimo = valor;
     }
     this.tamanho++;//criado novo índice
   }
@@ -49,68 +47,79 @@ public class Bicicletas{
   public void removerVaga(String valorProcurado){
     No anterior = null;
     No atual = this.primeiro;
-    
     for(int i=0; i < this.getTamanho(); i++){            
-      if (atual.getValor().equalsIgnoreCase(valorProcurado)){
-          if (this.tamanho == 1){
-              this.primeiro = null;
-              this.ultimo = null;
-          } else if (atual == primeiro){
-              this.primeiro = atual.getProximo();
-              atual.setProximo(null);
-          } else if (atual == ultimo){
-              this.ultimo = anterior;
-              anterior.setProximo(null);
-          } else {
-              anterior.setProximo(atual.getProximo());
-              atual = null;
+        if(atual.getValor().equalsIgnoreCase(valorProcurado)){
+          if(this.tamanho == 1){
+             this.primeiro = null;
+             this.ultimo = null;
+          }else if(atual == primeiro){
+            this.primeiro = atual.getProximo();
+            atual.setProximo(null);
+          }else if(atual == ultimo){
+            this.ultimo = anterior;
+            anterior.setProximo(null);
+          }else{
+            anterior.setProximo(atual.getProximo());
+            atual = null;
           }
           this.tamanho--;
-          break;
-      }
+        break;
+        }
       anterior = atual;
       atual = atual.getProximo();
     }
   }
 
-  public void alugarBicicleta(String valorProcurado) {
+  public void alugarBicicleta(String valorProcurado){
     No anterior = null;
     No atual = this.primeiro;
     for(int i=0; i < this.getTamanho(); i++){            
-      if (atual.getValor().equalsIgnoreCase(valorProcurado)){
-          if (this.tamanho == 1){
-              this.primeiro = null;
-              this.ultimo = null;
-          } else if (atual == primeiro){
-              this.primeiro = atual.getProximo();
-              atual.setProximo(null);
-          } else if (atual == ultimo){
-              this.ultimo = anterior;
-              anterior.setProximo(null);
-          } else {
-              anterior.setProximo(atual.getProximo());
-              atual = null;
+        if(atual.getValor().equalsIgnoreCase(valorProcurado)){
+          if(this.tamanho == 1){
+             this.primeiro = null;
+            this.ultimo = null;
+          }else if(atual == primeiro){
+            this.primeiro = atual.getProximo();
+            atual.setProximo(null);
+          }else if(atual == ultimo){
+            this.ultimo = anterior;
+            anterior.setProximo(null);
+          }else{
+            anterior.setProximo(atual.getProximo());
+            atual = null;
           }
           this.tamanho--;
           break;
-      }
+        } 
       anterior = atual;
       atual = atual.getProximo();
     }
   }
 
-  public void devolverBicicleta(String novoValor) {
-      No valor = new No(novoValor);
+  public void devolverBicicleta(String novoValor){
+    No valor = new No(novoValor);
     //adiiconei um último parâmetro
     if(this.primeiro == null && this.ultimo == null){//então ele é o primeiro e o último
-        this.primeiro = valor;//o valor é preenchido no main
-        this.ultimo = valor;
+       this.primeiro = valor;//o valor é preenchido no main
+       this.ultimo = valor;
     }else{
-        this.ultimo.setProximo(valor);//setproximo tá na class No
-        this.ultimo = valor;
+      this.ultimo.setProximo(valor);//setproximo tá na class No
+      this.ultimo = valor;
     }
     this.tamanho++;//criado novo índice
-    
     this.ultimo.setValor(novoValor);
   }
+
+  public void ordenar(String novoValor){
+    No valor = new No(novoValor);
+    if(this.primeiro == null){//então ele é o primeiro e o último
+       this.primeiro = valor;//o valor é preenchido no main
+       this.ultimo = valor;
+    }else {
+      this.ultimo.setProximo(valor);//setproximo tá na class No
+      this.ultimo = valor;
+    }
+    this.tamanho++;//criado novo índice
+  }
+  
 }

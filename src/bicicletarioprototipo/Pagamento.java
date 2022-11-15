@@ -1,6 +1,6 @@
 package bicicletarioprototipo;
 
-public class Pagamento {
+public class Pagamento{
   private int valorPagamento;
   private int tempo;
 
