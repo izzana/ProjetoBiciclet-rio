@@ -12,7 +12,7 @@ public class Usuario{
       nome = this.nome;
       senha = this.senha;
       
-    if(nome == "Ana" && senha == 123){
+    if(nome == "Administrador" && senha == 123){
       int aux = 0;
       int opt = 0;
       while(aux != 5){
